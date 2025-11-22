@@ -5,6 +5,8 @@ export interface CompanyAttrs {
   sector?: string;
   cnpj: string;
   city?: string;
+  phone?: string;
+  status: string;
 }
 
 export interface CompanyDoc extends Document {
@@ -12,6 +14,8 @@ export interface CompanyDoc extends Document {
   sector?: string;
   cnpj: string;
   city?: string;
+  phone?: string;
+  status: string;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -21,6 +25,8 @@ const CompanySchema = new Schema<CompanyDoc>({
   sector: { type: String, trim: true },
   cnpj: { type: String, required: true, trim: true },
   city: { type: String, trim: true },
+  phone: { type: String, trim: true },
+  status: { type: String, required: true, default: "ativo" },
 }, {
   timestamps: true,
   versionKey: false,
