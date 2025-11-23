@@ -41,6 +41,12 @@ const EmployeeSchema = new Schema<EmployeeDoc>({
   versionKey: false,
 });
 
+EmployeeSchema.set("toJSON", {
+  transform: (doc, ret: any) => {
+    delete ret.password;
+    return ret;
+  },
+});
 
 EmployeeSchema.index({ companyId: 1, email: 1 }, { unique: true });
 
