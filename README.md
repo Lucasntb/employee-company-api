@@ -65,7 +65,7 @@ npm test
 
 Com a API rodando:
 Acesse:
-http://localhost:3000/docs
+http://localhost:3000/api-docs/
 
 
 
