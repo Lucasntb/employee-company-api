@@ -10,7 +10,7 @@ export function errorHandler(
 ) {
   if (err instanceof ZodError) {
     return res.status(400).json({
-      message: "Erro de validação",
+      message: "Validation error",
       errors: err.issues.map((issue) => ({
         field: issue.path.join("."),
         message: issue.message,
