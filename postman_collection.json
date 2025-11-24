@@ -1,0 +1,161 @@
+{
+  "info": {
+    "name": "Employee-Company API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/health"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Companies",
+      "item": [
+        {
+          "name": "Create Company",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"ACME LTDA\",\n  \"cnpj\": \"12345678901234\",\n  \"sector\": \"Tecnologia\",\n  \"city\": \"S\\u00e3o Paulo\",\n  \"phone\": \"11999999999\",\n  \"status\": \"ativo\"\n}"
+            },
+            "url": "{{base_url}}/companies"
+          }
+        },
+        {
+          "name": "List Companies",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/companies"
+          }
+        },
+        {
+          "name": "Get Company by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/companies/{{companyId}}"
+          }
+        },
+        {
+          "name": "Update Company (PATCH)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phone\": \"11988887777\",\n  \"city\": \"Rio de Janeiro\"\n}"
+            },
+            "url": "{{base_url}}/companies/{{companyId}}"
+          }
+        },
+        {
+          "name": "Delete Company",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{base_url}}/companies/{{companyId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Employees",
+      "item": [
+        {
+          "name": "Create Employee",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Jo\\u00e3o Silva\",\n  \"email\": \"joao@example.com\",\n  \"role\": \"Desenvolvedor\",\n  \"password\": \"senha123\",\n  \"companyId\": \"{{companyId}}\"\n}"
+            },
+            "url": "{{base_url}}/employees"
+          }
+        },
+        {
+          "name": "List Employees by Company",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/employees/company/{{companyId}}"
+          }
+        },
+        {
+          "name": "Get Employee by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/employees/{{employeeId}}"
+          }
+        },
+        {
+          "name": "Update Employee (PATCH)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"role\": \"Senior Developer\",\n  \"status\": \"ativo\"\n}"
+            },
+            "url": "{{base_url}}/employees/{{employeeId}}"
+          }
+        },
+        {
+          "name": "Delete Employee",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{base_url}}/employees/{{employeeId}}"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "companyId",
+      "value": ""
+    },
+    {
+      "key": "employeeId",
+      "value": ""
+    }
+  ]
+}
